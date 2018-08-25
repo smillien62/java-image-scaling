@@ -17,6 +17,10 @@ public class ResampleFilters {
 	private static MitchellFilter mitchellFilter = new MitchellFilter();
 	private static TriangleFilter triangleFilter = new TriangleFilter();
 
+	enum Filter {
+		Bell, BiCubic, BiCubicHighFreqResponse, Box, BSpline, Hermite, Lanczos3, Mitchell, Triangle
+	}
+
 	public static ResampleFilter getBellFilter(){
 		return bellFilter;
 	}
@@ -51,5 +55,40 @@ public class ResampleFilters {
 
 	public static ResampleFilter getTriangleFilter(){
 		return triangleFilter;
+	}
+
+	public static ResampleFilter getFilter(String name) {
+
+		switch (Filter.valueOf(name)) {
+
+		case Bell:
+			return bellFilter;
+
+		case BiCubic:
+			return biCubicFilter;
+
+		case BiCubicHighFreqResponse:
+			return biCubicHighFreqResponse;
+
+		case Box:
+			return boxFilter;
+
+		case BSpline:
+			return bSplineFilter;
+
+		case Hermite:
+			return hermiteFilter;
+
+		case Lanczos3:
+			return lanczos3Filter;
+
+		case Mitchell:
+			return mitchellFilter;
+
+		case Triangle:
+			return triangleFilter;
+		}
+
+		return null;
 	}
 }
