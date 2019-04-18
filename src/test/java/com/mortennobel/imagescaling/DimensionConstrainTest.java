@@ -70,6 +70,17 @@ public class DimensionConstrainTest {
 	}
 
 
+	@Test
+	public void testCreateMaxDimensionNoOrientationSameScaleFactor1(){
+		DimensionConstrain constains = createMaxDimensionNoOrientation(400,200,true);
+		Dimension res = constains.getDimension(new Dimension(600,300));
+		assertEquals(new Dimension(400,200),res);
+	}
 
-
+	@Test
+	public void testCreateMaxDimensionNoOrientationSameScaleFactor2(){
+		DimensionConstrain constains = createMaxDimensionNoOrientation(400,200,true);
+		Dimension res = constains.getDimension(new Dimension(300,600));
+		assertEquals(new Dimension(200,400),res);
+	}
 }
