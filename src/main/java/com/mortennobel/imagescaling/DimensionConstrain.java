@@ -145,7 +145,7 @@ public class DimensionConstrain {
 				int width;
 				int height;
 				// swap length1 and length2
-				if (srcScaleFactor>scaleFactor){
+				if (srcScaleFactor>=scaleFactor){
 					width = length1;
 					height = length2;
 				}
